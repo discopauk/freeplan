@@ -1,0 +1,27 @@
+footer.footer
+  a.logo(href="#"): img(src=require("../img/logo-mono.png"), width="170", height="46", alt="Логотип дизайн-студии Фриплан")
+  .footer_left
+    p «Фриплан» - студия дизайна интерьера, для которой нет границ. Наша команда работает удаленно, создавая профессиональные дизайн-проекты по обмерочному плану помещений, заполненному техническому заданию на сайте и индивидуальным пожеланиям клиентов.
+    p 
+      | ИП Ясевич Сергей Олегович, УНП 192327428
+      br
+      | 220098 Республика Беларусь, г.Минск, ул.Слободская 29-31
+      br
+      | Свидетельство о государственной регистрации от 22.08.2014г. №192327428 выдано Мингорисполкомом
+    ul.footer__menu 
+      .footer__menu__item
+        each item in ["Главная", "Услуги", "Цены", "Портфолио", "Контакты"]
+          li: a(href="#")= item
+      .footer__menu__item
+        each item in ["Тех. задание", "Анкета", "Договор", "Вопрос-ответ"]
+          li: a(href="#")= item 
+    a.footer__payment-info(href="#") Способы оплаты, безопасность платежей и возврат денежных средств
+  .footer_right
+    .info
+      a(href="tel:+79858976497") +7 985 897 64 97
+      address г. Минск, Слободская 29-31
+      a(href="mailto:info@freeplan.ru") info@freeplan.ru
+    .payment  
+      img(src=require("../img/visa.png"), width="60", height="20", alt="Visa")
+      img(src=require("../img/mastercard.png"), width="54", height="45", alt="MasterCard")
+      img(src=require("../img/chrome.png"), width="69", height="47", alt="Chrome")

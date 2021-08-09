@@ -1,0 +1,49 @@
+$bg: #f3f3f3;
+$text: #000000;
+$orange: #ec8211;
+$grey: #707070;
+$green: #87c34b;
+$red: #ad3572;
+$blue: #1e98c0;
+$purple: #ad3572;
+$bg_a: rgba(255, 255, 255, 0.65);
+$text_a: rgba(0, 0, 0, 0.65);
+$tr: 0.4s cubic-bezier(0.36, 0.33, 0, 1);
+
+@mixin link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+@mixin mobile_small {
+  @media (max-width: 375px) { @content; }
+}
+@mixin mobile {
+  @media (max-width: 599px) { @content; }
+}
+@mixin mobile-only {
+  @media (max-width: 768px) { @content; }
+}
+@mixin tablet {
+  @media (min-width: 600px) { @content; }
+}
+@mixin tablet-only {
+  @media (max-width: 1024px) { @content; }
+}
+@mixin laptop {
+  @media (min-width: 900px) { @content; }
+}
+@mixin laptop-only {
+  @media (max-width: 1200px) { @content; }
+}
+@mixin laptop_large {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin big-desktop {
+  @media (min-width: 1800px) { @content; }
+}
