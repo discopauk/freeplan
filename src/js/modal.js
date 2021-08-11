@@ -13,6 +13,7 @@ next.addEventListener("click", function() {
 		field[2].setAttribute("style", "display:flex");
 		next.setAttribute("disabled", "disabled");
 		next.textContent = "Рассчитать стоимость";
+		next.setAttribute("type", "submit");
 		step.textContent = "Шаг 3 из 3";
 	}
 });

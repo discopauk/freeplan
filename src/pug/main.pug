@@ -11,57 +11,58 @@ main
         p Чтобы сделать вашу мечту реальностью, не нужно многочисленных выездов и личных встреч. Всю необходимую для работы информацию мы получаем онлайн, что в разы экономит ваши деньги и время.
         button.calc
           | Рассчитать стоимость
-          img(inline src=require("../img/right-arrow.svg"), width="36", height="17")
+          img(inline src=require("../img/right-arrow.svg"))
   section.about 
     h2.hidden О нас
     p.title А что может быть важнее, чем интерьер дома вашей мечты?
     p «Фриплан» - студия дизайна интерьера, для которой нет границ. Наша команда работает удаленно, создавая профессиональные дизайн-проекты по обмерочному плану помещений, заполненному техническому заданию на сайте и индивидуальным пожеланиям клиентов.
     .about__block
-      img(inline src=require("../img/wallet.svg"), width="53", height="52")
+      img(inline src=require("../img/wallet.svg"))
       h3 Выгодно
       | Экономия до 50% по сравнению с дорогостоящими услугами дизайн-студий
     .about__block 
-      img(inline src=require("../img/improvement.svg"), width="53", height="52") 
+      img(inline src=require("../img/improvement.svg")) 
       h3 Быстро
       | Только разработка – никаких утомительных встреч и согласований на объекте.
     .about__block 
-      img(inline src=require("../img/paper.svg"), width="53", height="52")
+      img(inline src=require("../img/paper.svg"))
       h3 Официально
       | Все работы - по заключенному договору и точно в срок.
   section.portfolio 
     h2 Наши проекты 
-    .list
+    ul.list
       - for (let x = 0; x < 6; x++)
-        .card
-          h3.card__title Таунхаус 147м<sup>2</sup>
-          p.card__desc 
-            | Московская область, Раменский район,  д.п. Кратово, ул. Бородинская  
-            br
-            | Англо-американский стиль
+        li.card
+          article
+            h3.card__title Таунхаус 147м<sup>2</sup>
+            p.card__desc 
+              | Московская область, Раменский район,  д.п. Кратово, ул. Бородинская  
+              br
+              | Англо-американский стиль
           .card__views 7755
-            img(inline src=require("../img/view.svg"), width="25", height="25", alt="Просмотры")
+            img(inline src=require("../img/view.svg"))
           .corner 
           .corner 
           .corner 
           .corner 
           a(href="#", aria-label="Перейти к портфолио") 
     a.btn-like(href="#") Перейти к портфолио
-      img(inline src=require("../img/right-arrow.svg"), width="36", height="17")
+      img(inline src=require("../img/right-arrow.svg"))
   section.price 
     h2 Сколько это стоит?
     p.title Что нужно для начала работы? Как вы это делаете?
     p Мы знаем – у вас много вопросов. Будьте уверены: ни один из них не останется без ответа! Чтобы узнать больше об условиях и возможностях, выберите объект, для которого планируется разработка дизайна интерьера
     .items
       .items__block
-        img(inline src=require("../img/building.svg"), width="100", height="100")
+        img(inline src=require("../img/building.svg"))
         h3 Квартира
         a(href="#" aria-label="Узнать стоимость дизайна квартиры") 
       .items__block
-        img(inline src=require("../img/village.svg"), width="100", height="100")
+        img(inline src=require("../img/village.svg"))
         h3 Дом
         a(href="#" aria-label="Узнать стоимость дизайна дома") 
       .items__block
-        img(inline src=require("../img/office-block.svg"), width="100", height="100")
+        img(inline src=require("../img/office-block.svg"))
         h3 Офис
         a(href="#" aria-label="Узнать стоимость дизайна офиса") 
   section.benefits 
@@ -70,16 +71,16 @@ main
     p Лучшее доказательство – более 10 000 кв. метров интерьеров, ежедневно создающих комфорт и уют для клиентов «Фриплан»
     .items
       .items__block
-        img(inline src=require("../img/star.svg"), width="25", height="25") 
+        img(inline src=require("../img/star.svg")) 
         p Более 5 лет на рынке удаленной разработки интерьеров
       .items__block
-        img(inline src=require("../img/star.svg"), width="25", height="25") 
+        img(inline src=require("../img/star.svg")) 
         p Подбор материалов, мебели и оборудования из ассортимента удобных для вас Магазинов
       .items__block
-        img(inline src=require("../img/star.svg"), width="25", height="25") 
+        img(inline src=require("../img/star.svg")) 
         p В штате – только дипломированные архитекторы и дизайнеры
       .items__block
-        img(inline src=require("../img/star.svg"), width="25", height="25") 
+        img(inline src=require("../img/star.svg")) 
         p Работаем по всей России и в странах СНГ
     .corner 
     .corner 
@@ -88,10 +89,12 @@ main
     .container
       p.title Получите пример дизайн-проекта, чтобы оценить наши возможности!
       form(action="submit")
-        input(placeholder="Ваше имя")
-        input(type="email", placeholder="Ваш e-mail")
-        button Получить пример проекта
-          img(inline src=require("../img/right-arrow.svg"), width="36", height="17")
+        label.hidden(for="name_contact") Имя
+        input#name_contact(placeholder="Ваше имя", required)
+        label.hidden(for="email_contact") E-mail
+        input#email_contact(type="email", placeholder="Ваш e-mail", required)
+        button(type="submit") Получить пример проекта
+          img(inline src=require("../img/right-arrow.svg"))
       .column
         span *Мы не передаем ваши персональные данные третьим лицам
         br
@@ -117,10 +120,12 @@ main
         br
         | Мы расскажем все сами – оставьте заявку на консультацию прямо сейчас!
       form(action="submit")
-        input(placeholder="Ваше имя")
-        input(type="email", placeholder="Ваш e-mail")
-        button Получить пример проекта
-          img(inline src=require("../img/right-arrow.svg"), width="36", height="17")
+        label.hidden(for="name_consult") Имя
+        input#name_consult(placeholder="Ваше имя", required)
+        label.hidden(for="email_consult") E-mail
+        input#email_consult(type="email", placeholder="Ваш e-mail", required)
+        button(type="submit") Получить пример проекта
+          img(inline src=require("../img/right-arrow.svg"))
       .column
         span *Мы не передаем ваши персональные данные третьим лицам
         br
@@ -145,11 +150,14 @@ main
       legend 
         | 2. Укажите площадь помещений дизайн-проекта, м
         sup 2
-      input(placeholder="Площадь помещения, м2")
+      label.hidden(for="area") Площадь
+      input#area(placeholder="Площадь помещения, м2")
     fieldset.field  
       legend 3. Ваши данные
-      input(placeholder="Ваше имя")
-      input(type="email", placeholder="Ваш e-mail")
+      label.hidden(for="name") Имя
+      input#name(placeholder="Ваше имя")
+      label.hidden(for="email") E-mail
+      input#email(type="email", placeholder="Ваш e-mail")
     .request__bottom  
       .column 
         span 
@@ -160,8 +168,8 @@ main
       .step Шаг 1 из 3
       button.prev 
         | Назад 
-        img(inline src=require("../img/right-arrow.svg"), width="36", height="17")
+        img(inline src=require("../img/right-arrow.svg"))
       button.next 
         | Вперед 
-        img(inline src=require("../img/right-arrow.svg"), width="36", height="17")
+        img(inline src=require("../img/right-arrow.svg"))
   .fade
