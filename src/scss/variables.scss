@@ -29,20 +29,11 @@ $tr: 0.4s cubic-bezier(0.36, 0.33, 0, 1);
 @mixin mobile-only {
   @media (max-width: 768px) { @content; }
 }
-@mixin tablet {
-  @media (min-width: 600px) { @content; }
-}
 @mixin tablet-only {
   @media (max-width: 1024px) { @content; }
 }
-@mixin laptop {
-  @media (min-width: 900px) { @content; }
-}
 @mixin laptop-only {
   @media (max-width: 1200px) { @content; }
-}
-@mixin laptop_large {
-  @media (min-width: 1200px) { @content; }
 }
 @mixin big-desktop {
   @media (min-width: 1800px) { @content; }
