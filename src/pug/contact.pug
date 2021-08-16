@@ -1,0 +1,13 @@
+form(action="submit")
+  label.hidden(for="name_contact") Имя
+  input#name_contact(placeholder="Ваше имя", required)
+  label.hidden(for="email_contact") E-mail
+  input#email_contact(type="email", placeholder="Ваш e-mail", required)
+  button(type="submit") Получить пример проекта
+    img(src=require("../img/right-arrow.svg"), width="37", height="20")
+.column
+  span *Мы не передаем ваши персональные данные третьим лицам
+  br
+  span 
+    | **Подавая заявку, вы принимаете 
+    a(href="#") условия нашей политики конфиденциальности

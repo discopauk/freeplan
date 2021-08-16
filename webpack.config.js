@@ -37,6 +37,22 @@ module.exports = {
     new ESLintPlugin(),
     new MiniCssExtractPlugin({
       filename: "style.css",
+    }),
+    new HtmlWebpackInlineSVGPlugin({
+      svgoConfig: [
+        {
+          removeEmptyAttrs: true
+        },
+        {
+          removeEmptyContainers: true
+        },
+        {
+          removeUselessStrokeAndFill: true
+        },
+        {
+          cleanupAttrs: true 
+        }
+      ]
     })
   ],
   module: {

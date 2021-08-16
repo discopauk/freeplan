@@ -8,15 +8,9 @@ header.main-header
     div 
     div 
     div 
-  .info
-    a(href="mailto:info@freeplan.ru") info@freeplan.ru
-    br
-    a(href="tel:+79858976497") +7 985 897 64 97
+  include info.pug
   .hamb 
     ul.hamb__list
       each item in ["Главная", "Услуги", "Цены", "Портфолио", "Контакты", "Анкета", "Вакансии", "Тех. задание"] 
         li.hamb__item: a(href="#")= item
-    .info 
-      a(href="mailto:info@freeplan.ru") info@freeplan.ru
-      br
-      a(href="tel:+79858976497") +7 985 897 64 97
+    include info.pug

@@ -8,18 +8,15 @@ footer.footer
       | 220098 Республика Беларусь, г.Минск, ул.Слободская 29-31
       br
       | Свидетельство о государственной регистрации от 22.08.2014г. №192327428 выдано Мингорисполкомом
-    ul.footer__menu__item
+    ul.footer__menu
       each item in ["Главная", "Услуги", "Цены", "Портфолио", "Контакты"]
-        li: a(href="#")= item
-    ul.footer__menu__item
+        li.footer__menu__item: a(href="#")= item
+    ul.footer__menu
       each item in ["Тех. задание", "Анкета", "Договор", "Вопрос-ответ"]
-        li: a(href="#")= item 
+        li.footer__menu__item: a(href="#")= item 
     a.footer__payment-info(href="#") Способы оплаты, безопасность платежей и возврат денежных средств
   .footer_right
-    .info
-      a(href="tel:+79858976497") +7 985 897 64 97
-      address г. Минск, Слободская 29-31
-      a(href="mailto:info@freeplan.ru") info@freeplan.ru
+    include info.pug
     .payment  
       img(src=require("../img/visa.png"), width="60", height="20", alt="Visa")
       img(src=require("../img/mastercard.png"), width="54", height="45", alt="MasterCard")

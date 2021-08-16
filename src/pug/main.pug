@@ -11,21 +11,21 @@ main
         p Чтобы сделать вашу мечту реальностью, не нужно многочисленных выездов и личных встреч. Всю необходимую для работы информацию мы получаем онлайн, что в разы экономит ваши деньги и время.
         button.calc
           | Рассчитать стоимость
-          img(inline src=require("../img/right-arrow.svg"))
+          img(src=require("../img/right-arrow.svg"), width="37", height="20")
   section.about 
     h2.hidden О нас
     p.title А что может быть важнее, чем интерьер дома вашей мечты?
     p «Фриплан» - студия дизайна интерьера, для которой нет границ. Наша команда работает удаленно, создавая профессиональные дизайн-проекты по обмерочному плану помещений, заполненному техническому заданию на сайте и индивидуальным пожеланиям клиентов.
     .about__block
-      img(inline src=require("../img/wallet.svg"))
+      img(src=require("../img/wallet.svg"), width="52", height="51")
       h3 Выгодно
       | Экономия до 50% по сравнению с дорогостоящими услугами дизайн-студий
     .about__block 
-      img(inline src=require("../img/improvement.svg")) 
+      img(src=require("../img/improvement.svg"), width="65", height="44") 
       h3 Быстро
       | Только разработка – никаких утомительных встреч и согласований на объекте.
     .about__block 
-      img(inline src=require("../img/paper.svg"))
+      img(src=require("../img/paper.svg"), width="41", height="50")
       h3 Официально
       | Все работы - по заключенному договору и точно в срок.
   section.portfolio 
@@ -40,67 +40,41 @@ main
               br
               | Англо-американский стиль
           .card__views 7755
-            img(inline src=require("../img/view.svg"))
+            img(inline src=require("../img/view.svg"), width="30", height="30")
           .corner 
           .corner 
           .corner 
           .corner 
           a(href="#", aria-label="Перейти к портфолио") 
     a.btn-like(href="#") Перейти к портфолио
-      img(inline src=require("../img/right-arrow.svg"))
+      img(src=require("../img/right-arrow.svg"), width="37", height="20")
   section.price 
     h2 Сколько это стоит?
     p.title Что нужно для начала работы? Как вы это делаете?
     p Мы знаем – у вас много вопросов. Будьте уверены: ни один из них не останется без ответа! Чтобы узнать больше об условиях и возможностях, выберите объект, для которого планируется разработка дизайна интерьера
     .items
-      .items__block
-        img(inline src=require("../img/building.svg"))
-        h3 Квартира
-        a(href="#" aria-label="Узнать стоимость дизайна квартиры") 
-      .items__block
-        img(inline src=require("../img/village.svg"))
-        h3 Дом
-        a(href="#" aria-label="Узнать стоимость дизайна дома") 
-      .items__block
-        img(inline src=require("../img/office-block.svg"))
-        h3 Офис
-        a(href="#" aria-label="Узнать стоимость дизайна офиса") 
+    - let price = {"Квартира": "building", "Дом": "village", "Офис": "office-block"}
+      each val, key in price 
+        .items__block 
+          img(inline src=require(`../img/${val}.svg`), width="100", height="100")
+          h3= key 
+          a(href="#")
   section.benefits 
     h2.hidden Преимущества
     p.title Мы любим свою работу и делаем ее хорошо.
     p Лучшее доказательство – более 10 000 кв. метров интерьеров, ежедневно создающих комфорт и уют для клиентов «Фриплан»
     .items
-      .items__block
-        img(inline src=require("../img/star.svg")) 
-        p Более 5 лет на рынке удаленной разработки интерьеров
-      .items__block
-        img(inline src=require("../img/star.svg")) 
-        p Подбор материалов, мебели и оборудования из ассортимента удобных для вас Магазинов
-      .items__block
-        img(inline src=require("../img/star.svg")) 
-        p В штате – только дипломированные архитекторы и дизайнеры
-      .items__block
-        img(inline src=require("../img/star.svg")) 
-        p Работаем по всей России и в странах СНГ
+      each item in ["Более 5 лет на рынке удаленной разработки интерьеров", "Подбор материалов, мебели и оборудования из ассортимента удобных для вас магазинов", "В штате – только дипломированные архитекторы и дизайнеры", "Работаем по всей России и в странах СНГ"]
+        .items__block 
+          img(src=require("../img/star.svg"), width="30", height="30") 
+          p= item
     .corner 
     .corner 
   section.contact 
     h2.hidden Пример дизайн-проекта
     .container
       p.title Получите пример дизайн-проекта, чтобы оценить наши возможности!
-      form(action="submit")
-        label.hidden(for="name_contact") Имя
-        input#name_contact(placeholder="Ваше имя", required)
-        label.hidden(for="email_contact") E-mail
-        input#email_contact(type="email", placeholder="Ваш e-mail", required)
-        button(type="submit") Получить пример проекта
-          img(inline src=require("../img/right-arrow.svg"))
-      .column
-        span *Мы не передаем ваши персональные данные третьим лицам
-        br
-        span 
-          | **Подавая заявку, вы принимаете 
-          a(href="#") условия нашей политики конфиденциальности
+      include contact.pug
   section.review 
     h2 Нам доверяют
     - for (let x = 0; x < 3; x++)
@@ -119,19 +93,7 @@ main
         | Нет времени разбираться? 
         br
         | Мы расскажем все сами – оставьте заявку на консультацию прямо сейчас!
-      form(action="submit")
-        label.hidden(for="name_consult") Имя
-        input#name_consult(placeholder="Ваше имя", required)
-        label.hidden(for="email_consult") E-mail
-        input#email_consult(type="email", placeholder="Ваш e-mail", required)
-        button(type="submit") Получить пример проекта
-          img(inline src=require("../img/right-arrow.svg"))
-      .column
-        span *Мы не передаем ваши персональные данные третьим лицам
-        br
-        span 
-          | **Подавая заявку, вы принимаете 
-          a(href="#") условия нашей политики конфиденциальности
+      include contact.pug
   section.request
     button.close(aria-label="Закрыть") &#215;
     h2 Рассчитайте стоимость вашего дизайн-проекта
@@ -168,8 +130,8 @@ main
       .step Шаг 1 из 3
       button.prev 
         | Назад 
-        img(inline src=require("../img/right-arrow.svg"))
+        img(src=require("../img/right-arrow.svg"), width="37", height="20")
       button.next 
         | Вперед 
-        img(inline src=require("../img/right-arrow.svg"))
+        img(src=require("../img/right-arrow.svg"), width="37", height="20")
   .fade
