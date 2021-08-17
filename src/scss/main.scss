@@ -1,187 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap');
-*, ::before, ::after {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-}
-body {
-  padding-left: 10vw;
-  background-color: $bg;
-  color: $text;
-  line-height: 1.6;
-  letter-spacing: 0.3px;
-  font: {
-    family: "Open Sans", sans-serif;
-    weight: 400;
-    size: 13px;
-  }
-  @include mobile {
-    padding-left: 10px;
-  }
-}
-:focus {
-  border: 0;
-  outline: $blue solid 2px;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-  &[href^="mailto"] {
-    color: $orange;
-  }
-}
-ul, li {
-  list-style: none;
-}
-img, svg {
-  display: inline-block;
-}
-button, .btn-like {
-  display: block;
-  padding: 1.8vh 2.4vw;
-  color: $bg;
-  text-transform: uppercase;
-  font-weight: 800;
-  cursor: pointer;
-  line-height: 2;
-  svg, img {
-    transform: translateY(4px);
-    fill: $bg;
-  }
-  &:disabled {
-    background-color: $grey;
-    cursor: not-allowed;
-  }
-}
-h1, h2, .title, p {
-  padding-left: 3vw;
-}
-p {
-  margin-bottom: 2.7rem;
-}
-h1, h2, h3, .title {
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-}
-h1, h2, .title {
-  font-size: 1.6rem;
-}
-h1, h2, h3 {
-  margin-bottom: 1.5rem;
-}
-h3 {
-  width: max-content;
-  font-size: 1.2rem;
-}
-form {
-  display: flex;
-  @include tablet-only {
-    flex-wrap: wrap;
-    button {
-      margin-left: 3rem;
-      flex: 0 0 80%;
-    }
-  }
-}
-input {
-  &:not([type="radio"]) {
-    padding: 1.2rem;
-    background-color: $bg;
-    flex: 0 1 30%;
-    margin-left: 3vw;
-    @include tablet-only {
-      margin-bottom: 1rem;
-      flex: 0 0 80%;
-    }
-  }
-  &[type="radio"] {
-    appearance: none;
-    position: relative;
-    width: 22px;
-    height: 22px;
-    margin-right: 1rem;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 1px solid $orange {
-      radius: 50%;
-    }
-    &:checked::before {
-      content: "";
-      position: absolute;
-      top: 25%;
-      left: 25%;
-      width: 10px;
-      height: 10px;
-      background-color: $orange;
-      border-radius: 50%;
-    }
-  }
-}
-label {
-  width: 90%;
-  cursor: pointer;
-}
-legend {
-  margin-bottom: 1.5rem;
-  color: $orange;
-  font: {
-    size: 1.32rem;
-    weight: 700;
-  }
-}
-span {
-  a {
-    text-decoration: underline;
-  }
-}
-address {
-  font-style: normal;
-}
-cite {
-  display: block;
-  text-align: center;
-  margin-top: 5vh;
-  text-transform: uppercase;
-  font: {
-    style: normal;
-    weight: 800;
-  }
-}
-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 10vh 0;
-}
-aside {
-  position: fixed;
-  bottom: 10vh;
-  left: 5vw;
-  z-index: 5;
-  @include tablet-only {
-    z-index: 2;
-  }
-  @include mobile {
-    position: initial;
-    display: flex;
-    background-image: url("../img/footer.jpg");
-    background-position: bottom;
-    svg {
-      fill: $bg;
-    }
-  }
-  div {
-    height: 100px;
-    width: 1px;
-    background-color: $text;
-    margin: 25px auto 0 auto;
-    @include mobile {
-      display: none;
-    }
-  }
-}
+@import "layout.scss";
+@import "variables.scss";
 .logo {
   margin: 1rem auto 0 0;
 }
@@ -211,11 +30,12 @@ aside {
   cursor: pointer;
   z-index: 2;
   * {
-  height: 3px;
-  width: 21px;
-  background-color: $text;
-  transform-origin: center;
-  transition: transform $tr; 
+    height: 3px;
+    width: 21px;
+    background-color: $text;
+    transform-origin: center;
+    transition: transform $tr; 
+    will-change: transform;
   }
   * + * {
     margin-top: 4px;
@@ -232,6 +52,7 @@ aside {
   transform: translate(-100%);
   transition: transform $tr;
   z-index: 1;
+  will-change: transform;
   &__list {
     text-align: center;
   }
@@ -253,6 +74,9 @@ aside {
   }
   button {
     margin-left: auto;
+    @include laptop-only {
+      margin: 0 3vw;
+    }
   }
 }
 .column {
@@ -272,16 +96,8 @@ aside {
 }
 .list {
   width: 100%;
-  display: grid;
   margin-bottom: 5rem;
-  grid: {
-    template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 2%;
-  }
-  @include mobile_small {
-    grid-template-columns: 1fr;
-    height: max-content;
-  }
+  @include grid(2%);
 }
 .card {
   position: relative;
@@ -297,23 +113,18 @@ aside {
       background-image: url("../img/portfolio#{$i}.jpg");
     }
   }
-  article {
-    display: contents;
+  &__title, &__desc, &__views, .corner {
+    opacity: 0;
+    transition: opacity $tr, transform $tr;
+    will-change: opacity, transform;
+  }
+  &__title, &__views {
+    transform: translateY(70px);
   }
   &__title {
     border-bottom: 3px solid $bg;
-    transition: opacity $tr;
-    transform: translateY(70px);
-    opacity: 0;
-  } 
-  &__desc {
-    opacity: 0;
-    transition: opacity $tr;
   }
   &__views {
-    opacity: 0;
-    transition: opacity $tr;
-    transform: translateY(70px);
     svg, img {
       fill: $bg;
       transform: translateX(5px) translateY(8px);
@@ -330,8 +141,6 @@ aside {
       bottom: 2px solid $bg;
       left: 2px solid $bg;
     }
-    opacity: 0;
-    transition: opacity $tr;
     &:nth-of-type(2) {
       top: 50px;
       left: 50px;
@@ -382,7 +191,7 @@ aside {
 }
 .next, .prev{
   background-color: $orange;
-  @include mobile_small {
+  @include mobile {
     flex: 0 0 100%;
   }
 }
@@ -401,6 +210,7 @@ aside {
   &__item {
     margin-bottom: 1rem;
     transition: transform $tr;
+    will-change: transform;
     &:hover {
       transform: scale(1.2);
     }
@@ -409,8 +219,8 @@ aside {
     display: flex;
     align-items: center;
     &__item {
-       margin-left: 15vw;
-       fill: $bg;
+      margin-left: 15vw;
+      fill: $bg;
     }
   }
 }
@@ -444,6 +254,7 @@ aside {
   background: $text_a;
   opacity: 0;
   transition: opacity $tr;
+  will-change: opacity;
   pointer-events: none;
   z-index: 2;
 }
@@ -517,14 +328,12 @@ aside {
   max-width: 80vw;
   @include mobile {
     max-width: 100vw;
-  }
-  @include mobile_small {
     height: max-content;
   }
   .btn-like {
     background-color: $purple;
-    @include mobile {
-      margin-top: 10rem;
+    @include laptop-only {
+      margin-top: 3rem;
     }
   }
 }
@@ -602,18 +411,8 @@ aside {
     }
   }
   .items {
-    display: grid;
-    grid: {
-      template-columns: repeat(auto-fit, minmax(380px, 1fr));
-      gap: 20%;
-    }
     align-items: center;
-    @include laptop-only {
-      grid-gap: 5%;
-    }
-    @include mobile-only {
-      grid-template-columns: 1fr;
-    }
+    @include grid(20%);
     &__block {
       svg, img {
         fill: $text; 
@@ -669,26 +468,6 @@ aside {
       flex: 0 0 100%;
       margin-bottom: 3rem;
     }
-    blockquote {
-      @include laptop-only {
-        p {
-          margin-bottom: 1rem;
-        }
-      }
-      &::after {
-        content: "";
-        display: block;
-        width: 20px;
-        height: 20px;
-        margin: 0 auto;
-        border: {
-          width: 2px;
-          bottom-style: solid;
-          left-style: solid;
-        }
-        transform: rotate(-45deg);
-      }
-    }
     &:nth-of-type(1) blockquote::after {
       border-color: $red;
     }
@@ -717,7 +496,8 @@ aside {
   transform: translate(100vw);
   background-color: $bg;
   z-index: 5;
-  transition: translate $tr;
+  transition: transform $tr;
+  will-change: transform;
   overflow-y: auto;
   @include tablet-only {
     top: 0;
@@ -747,9 +527,8 @@ aside {
   }
   &_left {
     flex: 1 1 70%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     border-right: 1px solid $grey;
+    @include grid(0);
     p {
       grid-column: 1 / 3;
     }
@@ -758,7 +537,10 @@ aside {
     }
   }
   &__menu {
-    text-align: center;
+    margin-left: 3vw;
+    @include mobile {
+      text-align: center;
+    }
     &__item {
       text-transform: uppercase;
       font-weight: 800;
@@ -789,7 +571,8 @@ aside {
     transform: translateY(0);
   }
   .toggle {
-    transition: $tr;
+    transition: transform $tr;
+    will-change: transform;
     transform: translateX(-10px);
     div:nth-child(1) {
       transform: rotate(45deg) translateX(10px)scale(1.2);

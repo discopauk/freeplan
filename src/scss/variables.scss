@@ -20,9 +20,21 @@ $tr: 0.4s cubic-bezier(0.36, 0.33, 0, 1);
   height: 100%;
   z-index: 10;
 }
-@mixin mobile_small {
-  @media (max-width: 375px) { @content; }
+@mixin grid($gap) {
+  display: grid;
+  grid: {
+    template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: $gap;
+  }
+  @include laptop-only {
+    grid-gap: 5vh;
+  }
+  @include mobile {
+    grid-template-columns: 1fr;
+    height: max-content;
+  }
 }
+
 @mixin mobile {
   @media (max-width: 599px) { @content; }
 }

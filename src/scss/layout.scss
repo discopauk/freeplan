@@ -1,0 +1,206 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+body {
+  padding-left: 10vw;
+  background-color: $bg;
+  color: $text;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  font: {
+    family: "Open Sans", sans-serif;
+    weight: 400;
+    size: 13px;
+  }
+  @include mobile {
+    padding-left: 10px;
+  }
+}
+:focus {
+  border: 0;
+  outline: $blue solid 2px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  &[href^="mailto"] {
+    color: $orange;
+  }
+}
+ul, li {
+  list-style: none;
+}
+img, svg {
+  display: inline-block;
+}
+button, .btn-like {
+  display: block;
+  padding: 1.8vh 2.4vw;
+  color: $bg;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+  line-height: 2;
+  svg, img {
+    transform: translateY(4px);
+    fill: $bg;
+  }
+  &:disabled {
+    background-color: $grey;
+    cursor: not-allowed;
+  }
+  @include laptop-only {
+    margin-left: 3rem;
+    flex: 1 0 100%;
+  }
+}
+h1, h2, .title, p {
+  padding-left: 3vw;
+}
+p {
+  margin-bottom: 2.7rem;
+}
+h1, h2, h3, .title {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+h1, h2, .title {
+  font-size: 1.6rem;
+}
+h1, h2, h3 {
+  margin-bottom: 1.5rem;
+}
+h3 {
+  width: max-content;
+  font-size: 1.2rem;
+}
+form {
+  display: flex;
+  @include laptop-only {
+    flex-wrap: wrap;
+  }
+}
+input {
+  &:not([type="radio"]) {
+    padding: 1.2rem;
+    background-color: $bg;
+    flex: 0 1 30%;
+    margin-left: 3vw;
+    @include laptop-only {
+      margin-bottom: 1rem;
+      flex: 0 0 100%;
+    }
+  }
+  &[type="radio"] {
+    appearance: none;
+    position: relative;
+    width: 22px;
+    height: 22px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid $orange {
+      radius: 50%;
+    }
+    &:checked::before {
+      content: "";
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      width: 10px;
+      height: 10px;
+      background-color: $orange;
+      border-radius: 50%;
+    }
+  }
+}
+label {
+  width: 90%;
+  cursor: pointer;
+}
+legend {
+  margin-bottom: 1.5rem;
+  color: $orange;
+  font: {
+    size: 1.32rem;
+    weight: 700;
+  }
+}
+span {
+  a {
+    text-decoration: underline;
+  }
+}
+address {
+  font-style: normal;
+}
+blockquote {
+  @include laptop-only {
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    border: {
+      width: 2px;
+      bottom-style: solid;
+      left-style: solid;
+    }
+    transform: rotate(-45deg);
+  }
+}
+cite {
+  display: block;
+  text-align: center;
+  margin-top: 5vh;
+  text-transform: uppercase;
+  font: {
+    style: normal;
+    weight: 800;
+  }
+}
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10vh 0;
+}
+article {
+  display: contents;
+}
+aside {
+  position: fixed;
+  bottom: 10vh;
+  left: 5vw;
+  z-index: 5;
+  @include tablet-only {
+    z-index: 2;
+  }
+  @include mobile {
+    position: initial;
+    display: flex;
+    background-image: url("../img/footer.jpg");
+    background-position: bottom;
+    svg {
+      fill: $bg;
+    }
+  }
+  div {
+    height: 100px;
+    width: 1px;
+    background-color: $text;
+    margin: 25px auto 0 auto;
+    @include mobile {
+      display: none;
+    }
+  }
+}
