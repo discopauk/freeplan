@@ -11,21 +11,21 @@ main
         p Чтобы сделать вашу мечту реальностью, не нужно многочисленных выездов и личных встреч. Всю необходимую для работы информацию мы получаем онлайн, что в разы экономит ваши деньги и время.
         button.calc
           | Рассчитать стоимость
-          img(src=require("../img/right-arrow.svg"), width="37", height="20")
+          img(src=require("../img/right-arrow.svg"), width="37" height="20")
   section.about 
     h2.hidden О нас
     p.title А что может быть важнее, чем интерьер дома вашей мечты?
     p «Фриплан» - студия дизайна интерьера, для которой нет границ. Наша команда работает удаленно, создавая профессиональные дизайн-проекты по обмерочному плану помещений, заполненному техническому заданию на сайте и индивидуальным пожеланиям клиентов.
     .about__block
-      img(src=require("../img/wallet.svg"), width="52", height="51")
+      img(src=require("../img/wallet.svg"), width="52" height="51")
       h3 Выгодно
       | Экономия до 50% по сравнению с дорогостоящими услугами дизайн-студий
     .about__block 
-      img(src=require("../img/improvement.svg"), width="65", height="44") 
+      img(src=require("../img/improvement.svg"), width="65" height="44") 
       h3 Быстро
       | Только разработка – никаких утомительных встреч и согласований на объекте.
     .about__block 
-      img(src=require("../img/paper.svg"), width="41", height="50")
+      img(src=require("../img/paper.svg"), width="41" height="50")
       h3 Официально
       | Все работы - по заключенному договору и точно в срок.
   section.portfolio 
@@ -40,14 +40,14 @@ main
               br
               | Англо-американский стиль
           .card__views 7755
-            img(inline src=require("../img/view.svg"), width="30", height="30", title="Просмотры")
+            include ../img/view.svg
           .corner 
           .corner 
           .corner 
           .corner 
-          a(href="#", aria-label="Перейти к портфолио") 
+          a(href="#" aria-label="Перейти к портфолио") 
     a.btn-like(href="#") Перейти к портфолио
-      img(src=require("../img/right-arrow.svg"), width="37", height="20")
+      img(src=require("../img/right-arrow.svg"), width="37" height="20")
   section.price 
     h2 Сколько это стоит?
     p.title Что нужно для начала работы? Как вы это делаете?
@@ -56,7 +56,7 @@ main
     - let price = {"Квартира": "building", "Дом": "village", "Офис": "office-block"}
       each val, key in price 
         .items__block 
-          img(inline src=require(`../img/${val}.svg`), width="100", height="100")
+          img(inline src=require(`../img/${val}.svg`), width="100" height="100")
           h3= key 
           a(href="#")
   section.benefits 
@@ -66,7 +66,7 @@ main
     .items
       each item in ["Более 5 лет на рынке удаленной разработки интерьеров", "Подбор материалов, мебели и оборудования из ассортимента удобных для вас магазинов", "В штате – только дипломированные архитекторы и дизайнеры", "Работаем по всей России и в странах СНГ"]
         .items__block 
-          img(src=require("../img/star.svg"), width="30", height="30") 
+          img(src=require("../img/star.svg"), width="30" height="30") 
           p= item
     .corner 
     .corner 
@@ -97,7 +97,7 @@ main
   section.request
     button.close(aria-label="Закрыть") &#215;
     h2 Рассчитайте стоимость вашего дизайн-проекта
-    fieldset.field(style="display:flex")
+    fieldset.field.open(data-step="1")
       legend 1. Укажите тип помещения
       .field__radio
         input#flat(type="radio" name="type" value="flat" checked) 
@@ -108,18 +108,18 @@ main
       .field__radio
         input#office(type="radio" name="type" value="office") 
         label(for="office") Офис
-    fieldset.field
+    fieldset.field(data-step="2")
       legend 
         | 2. Укажите площадь помещений дизайн-проекта, м
         sup 2
       label.hidden(for="area") Площадь
       input#area(placeholder="Площадь помещения, м2")
-    fieldset.field  
+    fieldset.field(data-step="3")  
       legend 3. Ваши данные
       label.hidden(for="name") Имя
       input#name(placeholder="Ваше имя")
       label.hidden(for="email") E-mail
-      input#email(type="email", placeholder="Ваш e-mail")
+      input#email(type="email" placeholder="Ваш e-mail")
     .request__bottom  
       .column 
         span 
@@ -130,8 +130,8 @@ main
       .step Шаг 1 из 3
       button.prev 
         | Назад 
-        img(src=require("../img/right-arrow.svg"), width="37", height="20")
+        img(src=require("../img/right-arrow.svg"), width="37" height="20")
       button.next 
         | Вперед 
-        img(src=require("../img/right-arrow.svg"), width="37", height="20")
+        img(src=require("../img/right-arrow.svg"), width="37" height="20")
   .fade
