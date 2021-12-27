@@ -1,8 +1,9 @@
 header.main-header
+  - let menu = ["Главная", "Услуги", "Цены", "Портфолио", "Контакты"]
   a.logo(href="#"): img(src=require("../img/main-logo.svg"), width="168", height="45", alt="Фриплан - студия дизайна интерьера")
   nav.main-menu
     ul.main-menu__list
-      each item in ["Главная", "Услуги", "Цены", "Портфолио", "Контакты"]
+      each item in menu
         li.main-menu__item: a(href="#")= item
   .toggle 
     div 
@@ -11,6 +12,8 @@ header.main-header
   include info.pug
   .hamb 
     ul.hamb__list
-      each item in ["Главная", "Услуги", "Цены", "Портфолио", "Контакты", "Анкета", "Вакансии", "Тех. задание"] 
-        li.hamb__item: a(href="#")= item
+      - let hamb = menu
+      - hamb.push("Анкета", "Вакансии", "Тех. задание")
+        each item in hamb
+          li.hamb__item: a(href="#" tabindex="-1")= item
     include info.pug

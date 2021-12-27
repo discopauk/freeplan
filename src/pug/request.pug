@@ -1,0 +1,36 @@
+section.request
+	button.close(aria-label="Закрыть") &#215;
+	h2 Рассчитайте стоимость вашего дизайн-проекта
+	fieldset.field.open(data-step="1")
+		legend 1. Укажите тип помещения
+		ul.field__list 
+			li.field__radio
+				input#flat(type="radio" name="type" value="flat" checked) 
+				label(for="flat") Квартира
+			li.field__radio
+				input#house(type="radio" name="type" value="house") 
+				label(for="house") Частный дом
+			li.field__radio
+				input#office(type="radio" name="type" value="office") 
+				label(for="office") Офис
+	fieldset.field(data-step="2")
+		legend 
+			| 2. Укажите площадь помещений дизайн-проекта, м
+			sup 2
+		label.hidden(for="area") Площадь
+		input#area(placeholder="Площадь помещения, м2")
+	fieldset.field(data-step="3")  
+		legend 3. Ваши данные
+		label.hidden(for="name") Имя
+		input#name(placeholder="Ваше имя")
+		label.hidden(for="email") E-mail
+		input#email(type="email" placeholder="Ваш e-mail")
+	.request__bottom  
+		include column
+		.step Шаг 1 из 3
+		button.prev 
+			img(src=require("../img/right-arrow.svg"), width="37" height="20" alt="")
+			| Назад 
+		button.next 
+			| Вперед 
+			img(src=require("../img/right-arrow.svg"), width="37" height="20" alt="")

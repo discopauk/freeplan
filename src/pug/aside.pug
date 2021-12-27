@@ -1,5 +1,5 @@
 aside
   ul.social   
     each item in ["whatsapp", "viber", "telegram", "instagram"]
-      li.social__item: a(href="#", title=`${item.charAt(0).toUpperCase() + item.slice(1)}`): img(inline src=require(`../img/${item}.svg`)) 
+      li.social__item: a(href="#", title=`${item.charAt(0).toUpperCase() + item.slice(1)}`): img(src=require(`../img/${item}.svg`) width="19" height="19" alt=`${item.charAt(0).toUpperCase() + item.slice(1)}`) 
   div
