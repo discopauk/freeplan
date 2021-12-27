@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30" xml:space="preserve">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30" xml:space="preserve" fill="#fff">
   <path d="M509 246c-5-6-114-153-253-153S8 240 3 246c-4 6-4 14 0 20 5 6 114 153 253 153s248-147 253-153c4-6 4-14 0-20zM256 385c-103 0-191-97-218-129 27-32 115-129 218-129s191 97 218 129c-27 32-115 129-218 129z"/>
   <path d="M256 155a101 101 0 1 0 0 203 101 101 0 0 0 0-203zm0 169a68 68 0 1 1 0-136 68 68 0 0 1 0 136z"/>
 </svg>

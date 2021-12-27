@@ -1,206 +1,257 @@
-*, ::before, ::after {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
+.main-header, .footer {
+	grid-column: span 2;
+  padding: $sm $heavy $sm 10vw;
 }
-body {
-  padding-left: 10vw;
-  background-color: $bg;
-  color: $text;
-  line-height: 1.6;
-  letter-spacing: 0.3px;
-  font: {
-    family: "Open Sans", sans-serif;
-    weight: 400;
-    size: 13px;
-  }
-  @include mobile {
-    padding-left: 10px;
-  }
-}
-:focus {
-  border: 0;
-  outline: $blue solid 2px;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-  &[href^="mailto"] {
-    color: $orange;
-  }
-}
-ul, li {
-  list-style: none;
-}
-img, svg {
-  display: inline-block;
-}
-button, .btn-like {
-  display: block;
-  padding: 1.8vh 2.4vw;
-  color: $bg;
-  text-transform: uppercase;
-  font-weight: 800;
-  cursor: pointer;
-  line-height: 2;
-  svg, img {
-    transform: translateY(4px);
-    fill: $bg;
-  }
-  &:disabled {
-    background-color: $grey;
-    cursor: not-allowed;
-  }
-  @include laptop-only {
-    margin-left: 3rem;
-    flex: 1 0 100%;
-  }
-}
-h1, h2, .title, p {
-  padding-left: 3vw;
-}
-p {
-  margin-bottom: 2.7rem;
-}
-h1, h2, h3, .title {
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-}
-h1, h2, .title {
-  font-size: 1.6rem;
-}
-h1, h2, h3 {
-  margin-bottom: 1.5rem;
-}
-h3 {
-  width: max-content;
-  font-size: 1.2rem;
-}
-form {
-  display: flex;
-  @include laptop-only {
-    flex-wrap: wrap;
-  }
-}
-input {
-  &:not([type="radio"]) {
-    padding: 1.2rem;
-    background-color: $bg;
-    flex: 0 1 30%;
-    margin-left: 3vw;
-    @include laptop-only {
-      margin-bottom: 1rem;
-      flex: 0 0 100%;
-    }
-  }
-  &[type="radio"] {
-    appearance: none;
-    position: relative;
-    width: 22px;
-    height: 22px;
-    margin-right: 1rem;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 1px solid $orange {
-      radius: 50%;
-    }
-    &:checked::before {
-      content: "";
-      position: absolute;
-      top: 25%;
-      left: 25%;
-      width: 10px;
-      height: 10px;
-      background-color: $orange;
-      border-radius: 50%;
-    }
-  }
-}
-label {
-  width: 90%;
-  cursor: pointer;
-}
-legend {
-  margin-bottom: 1.5rem;
-  color: $orange;
-  font: {
-    size: 1.32rem;
-    weight: 700;
-  }
-}
-span {
-  a {
-    text-decoration: underline;
-  }
-}
-address {
-  font-style: normal;
-}
-blockquote {
-  @include laptop-only {
-    p {
-      margin-bottom: 1rem;
-    }
-  }
-  &::after {
-    content: "";
-    display: block;
-    width: 20px;
-    height: 20px;
-    margin: 0 auto;
-    border: {
-      width: 2px;
-      bottom-style: solid;
-      left-style: solid;
-    }
-    transform: rotate(-45deg);
-  }
-}
-cite {
-  display: block;
-  text-align: center;
-  margin-top: 5vh;
-  text-transform: uppercase;
-  font: {
-    style: normal;
-    weight: 800;
-  }
-}
-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 10vh 0;
-}
-article {
-  display: contents;
-}
-aside {
+.main-header {
   position: fixed;
-  bottom: 10vh;
-  left: 5vw;
-  z-index: 5;
-  @include tablet-only {
-    z-index: 2;
-  }
-  @include mobile {
-    position: initial;
-    display: flex;
-    background-image: url("../img/footer.jpg");
-    background-position: bottom;
-    svg {
-      fill: $bg;
+  top: 0;
+  left: 0;
+	width: 100%;
+  @extend %df_c;
+  background-color: $bg;
+  z-index: 1;
+	@include mobile {
+		.info {
+			display: none;
+		}
+	}
+}
+.hero, .contact, .consult {
+	padding: $heavy 0;
+}
+.hero {
+  background-image: url("../img/hero.webp");
+	@extend %bg_cover;
+	.container {
+		background-color: $bg_a;
+	}
+}
+.about {
+	&__list {
+		@extend %df_c;
+		margin-left: 15%;
+		flex-wrap: wrap;
+	}
+  &__block {
+    align-self: baseline;
+		flex: 0 0 25%;
+    @include mobile-only {
+      flex: 0 1 50%;
+    }
+    img {
+      margin-bottom: $md;
+    }
+    h3 {
+			width: max-content;
+      border: {
+        style: solid;
+        bottom-width: 4px;
+      }
+    }
+    &:nth-of-type(1) h3 {
+      border-bottom-color: $green;
+    }
+    &:nth-of-type(2) h3 {
+      border-bottom-color: $red;
+    }
+    &:nth-of-type(3) h3 {
+      border-bottom-color: $blue;
     }
   }
-  div {
-    height: 100px;
-    width: 1px;
-    background-color: $text;
-    margin: 25px auto 0 auto;
-    @include mobile {
+}
+.portfolio {
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		grid-gap: $normal;
+		align-items: end;
+		@include mobile-small {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+.price {
+	&__list {
+		@extend %df_c;
+		@include mobile {
+			flex-wrap: wrap;
+		}
+	}
+	&__item {
+		position: relative;
+		padding: 5%;
+		transition: color $tr, background-color $tr;
+		text-align: center;
+		flex: 1 0 33%;
+		@include mobile {
+			flex: 0 0 100%;
+		}
+		img, svg {
+			margin-bottom: $xl;
+			fill: $text;
+			transition: fill $tr;
+		}
+		@include hover {
+			&:hover {
+				color: $bg;
+				svg {
+					fill: $bg;
+				}
+			}
+			&:nth-of-type(1):hover {
+				background-color: $blue;
+			}
+			&:nth-of-type(2):hover {
+        background-color: $green;
+      }
+      &:nth-of-type(3):hover {
+        background-color: $red;
+      }
+		}
+	}
+} 
+.benefits {
+  position: relative;
+	&__list {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		column-gap: $xl;
+	}
+	&__item {
+		position: relative;
+		flex: 0 1 33%;
+		text-transform: uppercase;
+		font-weight: 800;
+		@include mobile-only {
+			flex: 0 0 45%;
+		}
+		img {
+			margin-left: $normal;
+			margin-bottom: $sm;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 20%;
+			left: 0;
+			display: block;
+			width: 5rem;
+			height: 4px;
+			background-color: $green;
+		}
+	}
+  .corner {
+    border-color: $text;
+		right: $heavy;
+    @include laptop-only {
       display: none;
     }
+    &:nth-of-type(2) {
+      top: 0;
+    }
+    &:nth-of-type(3) {
+      bottom: 0;
+      transform: rotate(90deg);
+    }
+  }
+}
+.contact, .consult {
+  color: $bg;
+	@extend %bg_cover;
+  .container {
+    background-color: $text_a;
+  }
+}
+.contact {
+  background-image: url("../img/contact1.webp");
+  button {
+    background-color: $green;
+  }
+}
+.review {
+	&__list {
+		@extend %df_c;
+		@include laptop-only {
+			flex-wrap: wrap;
+		}
+	}
+	&__item {
+		flex: 0 1 30%;
+		column-gap: $sm;
+    @include laptop-only {
+      flex: 0 0 100%;
+      margin-bottom: 3rem;
+    }
+    &:nth-of-type(1) blockquote::after {
+      border-color: $red;
+    }
+    &:nth-of-type(2) blockquote::after {
+      border-color: $green;
+    }
+    &:nth-of-type(3) blockquote::after {
+      border-color: $blue;
+    }
+  }
+}
+.consult {
+  background-image: url("../img/contact2.webp");
+  button {
+    background-color: $blue;
+  }
+}
+.footer {
+  @extend %df_c;
+  flex-wrap: wrap;
+  color: $bg;
+  background-image: url("../img/footer.webp");
+	@extend %bg_cover;
+	@include mobile-small {
+		padding-left: $sm;
+		padding-right: $sm;
+	}
+  .logo {
+    flex: 0 0 100%;
+  }
+  &_left {
+    flex: 0 0 70%;
+    border-right: 1px solid $grey;
+		@include mobile {
+			flex: 0 0 100%;
+		}
+  }
+  &__menu {
+    margin-left: $xl;
+		@extend %df_c;
+		flex-direction: column;
+		flex-wrap: wrap;
+		max-height: 12rem;
+		row-gap: $semi;
+		@include tablet-only {
+			max-height: max-content;
+		}
+  }
+	&__item:not(.footer__item:last-of-type) {
+		text-transform: uppercase;
+    font-weight: 800;
+	}
+  &__payment-info {
+    text-decoration: underline;
+  }
+  &_right {
+    flex: 0 0 30%;
+    @extend %df_c;
+		flex-direction: column;
+		@include mobile {
+			flex-direction: row;
+			flex: 0 0 100%;
+			.payment {
+				margin: 0;
+			}
+		}
+		@include mobile-small {
+			flex-wrap: wrap;
+		}
   }
 }
