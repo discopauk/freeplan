@@ -1,0 +1,193 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body {
+  display: grid;
+  grid-template-columns: 10vw 1fr;
+  background-color: $bg;
+  color: $text;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  -webkit-font-smoothing: antialiased;
+  font: {
+    family: "Open Sans", sans-serif;
+    weight: 400;
+    size: 13px;
+  }
+  @include mobile {
+    display: block;
+  }
+}
+a, button, input {
+  font: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  &[href^="mailto"] {
+    color: $orange;
+  }
+}
+ul, li {
+  list-style: none;
+}
+img, svg {
+  display: inline-block;
+  max-width: 100%;
+}
+button, .btn-like {
+  display: block;
+  padding: $sm $xl;
+  width: max-content;
+  color: $bg;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+  line-height: 2;
+  img {
+    transform: translateY(4px);
+  }
+  @include laptop-only {
+    margin-left: $xxl;
+    flex: 1 0 100%;
+  }
+}
+.btn-like {
+  height: max-content;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+h1, h2, .title, .desc {
+  padding-left: $xxl;
+}
+p {
+  margin-bottom: $xxl;
+}
+h1, h2, h3, .title {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+h1, h2, .title {
+  font-size: $lg;
+}
+h1, h2, h3 {
+  margin-bottom: $lg;
+}
+h3 {
+  font-size: $md;
+}
+form {
+  display: flex;
+  @include laptop-only {
+    flex-wrap: wrap;
+  }
+}
+input {
+  &:not([type="radio"]) {
+    padding: $md;
+    flex: 0 0 33%;
+    @include laptop-only {
+      margin-bottom: $normal;
+      flex: 0 0 100%;
+    }
+  }
+  &[type="radio"] {
+    appearance: none;
+    position: relative;
+    width: 22px;
+    height: 22px;
+    margin-right: $normal;
+    cursor: pointer;
+    border: 1px solid $orange {
+      radius: 50%;
+    }
+    &:checked::before {
+      content: "";
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      width: 10px;
+      height: 10px;
+      background-color: $orange;
+      border-radius: 50%;
+    }
+  }
+}
+label {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+legend {
+  margin-bottom: $half;
+  color: $orange;
+  font: {
+    size: $semi;
+    weight: 700;
+  }
+}
+span {
+  a {
+    text-decoration: underline;
+  }
+}
+address {
+  font-style: normal;
+}
+blockquote::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  border: {
+    width: 2px;
+    bottom-style: solid;
+    left-style: solid;
+  }
+  transform: rotate(-45deg);
+}
+cite {
+  display: block;
+  text-align: center;
+  margin-top: $xl;
+  text-transform: uppercase;
+  font: {
+    style: normal;
+    weight: 800;
+  }
+}
+section:not(.request) {
+  margin: $heavy 0;
+  padding-right: $heavy;
+  @include mobile {
+    padding: 0 $sm;
+  }
+}
+article {
+  display: contents;
+}
+aside {
+  position: sticky;
+  bottom: $heavy;
+  align-self: end;
+  margin: 0 auto $normal auto;
+  z-index: 1;
+  @include mobile {
+    display: none;
+  }
+  div {
+    height: 100px;
+    width: 1px;
+    background-color: $text;
+    margin: 25px auto 0 auto;
+  }
+}

@@ -1,40 +1,60 @@
 $bg: #f3f3f3;
 $text: #000000;
-$orange: #ec8211;
+$orange: #a55b0c;
 $grey: #707070;
-$green: #87c34b;
+$green: #406020;
 $red: #ad3572;
-$blue: #1e98c0;
+$blue: #145D76;
 $purple: #ad3572;
 $bg_a: rgba(255, 255, 255, 0.65);
 $text_a: rgba(0, 0, 0, 0.65);
+
+$sm: 0.7rem;
+$normal: 1rem;
+$md: 1.2rem;
+$semi: 1.32rem;
+$half: 1.5rem;
+$lg: 1.6rem;
+$xl: 2rem;
+$xxl: 2.7rem;
+$heavy: 4.8rem;
+
 $tr: 0.4s cubic-bezier(0.36, 0.33, 0, 1);
 
-@mixin link {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
+%df_c {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-@mixin grid($gap) {
-  display: grid;
-  grid: {
-    template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: $gap;
-  }
-  @include laptop-only {
-    grid-gap: 5vh;
-  }
-  @include mobile {
-    grid-template-columns: 1fr;
-    height: max-content;
+%bg_cover {
+  background: {
+    size: cover;
+    position: center;
   }
 }
-
+@keyframes slides {
+	16% {
+		background-image: url("../img/portfolio1.webp");
+	}
+	32% {
+		background-image: url("../img/portfolio2.webp");
+	}
+	48% {
+		background-image: url("../img/portfolio3.webp");
+	}
+	64% {
+		background-image: url("../img/portfolio4.webp");
+	}
+	80% {
+		background-image: url("../img/portfolio5.webp");
+	}
+	96% {
+		background-image: url("../img/portfolio6.webp");
+	}
+}
+@mixin mobile-small {
+  @media (max-width: 599px) { @content; }
+}
 @mixin mobile {
   @media (max-width: 599px) { @content; }
 }
@@ -42,8 +62,11 @@ $tr: 0.4s cubic-bezier(0.36, 0.33, 0, 1);
   @media (max-width: 768px) { @content; }
 }
 @mixin tablet-only {
-  @media (max-width: 1024px) { @content; }
+  @media (max-width: 1070px) { @content; }
 }
 @mixin laptop-only {
   @media (max-width: 1200px) { @content; }
+}
+@mixin hover {
+  @media (hover: hover) { @content; }
 }

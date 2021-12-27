@@ -1,0 +1,296 @@
+.logo {
+  margin: 1rem auto 0 0;
+}
+.main-menu__list {
+	@extend %df_c;
+	column-gap: $xxl;
+	text-transform: uppercase;
+	font-weight: 800;
+	@include laptop-only {
+		display: none;
+	}
+}
+.info {
+  margin-left: auto;
+  font-weight: 800;
+  text-align: right;
+	text-transform: uppercase;
+}
+.toggle {
+  margin-left: $xxl;
+  cursor: pointer;
+  z-index: 2;
+  * {
+    height: 3px;
+    width: 21px;
+    background-color: $text;
+    transform-origin: center;
+    transition: transform $tr;
+		margin-bottom: 4px;
+  }
+}
+.hamb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10%;
+  width: 100vw;
+  height: 100vh;
+  background-color: $bg;
+  transform: translateY(-150vh);
+  transition: transform $tr;
+  z-index: 1;
+  &__list {
+    @extend %df_c;
+		flex-direction: column;
+		row-gap: $xl;
+		text-transform: uppercase;
+    font: {
+      weight: 800;
+      size: $semi;
+    }
+  }
+}
+.container {
+  padding: 6vh 5vw 6vh 0vw;
+  margin-right: $heavy;
+  @include mobile-only {
+    margin: 0;
+  }
+  button {
+    margin-left: auto;
+  }
+	.column {
+		margin-left: auto;
+	}
+}
+.column {
+	width: 100%;
+  max-width: 40%;
+  @include mobile-only {
+    max-width: 100%;
+    padding-left: $xxl;
+  }
+}
+.accent {
+  color: $orange;
+  border-bottom: 4px solid $orange;
+}
+.calc {
+	background-color: $orange;
+}
+.card {
+  position: relative;
+  @extend %df_c;
+	flex-direction: column;
+  text-align: center;
+  padding: 20%;
+  color: $bg;
+  transition: background-color $tr;
+	@extend %bg_cover;
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      background-image: url("../img/portfolio#{$i}.webp");
+    }
+  }
+  &__title {
+    border-bottom: 3px solid $bg;
+  }
+  &__views img {
+    transform: translateX(5px) translateY(10px);
+  }
+  .corner {
+    border-color: $bg;
+		right: $heavy;
+    &:nth-of-type(5) {
+      top: $xxl;
+      left: $xxl;
+      transform: rotate(-90deg);
+    }
+    &:nth-of-type(2) {
+      bottom: $xxl;
+      right: $xxl;
+      transform: rotate(90deg);
+    }
+    &:nth-of-type(3) {
+      bottom: $xxl;
+      left: $xxl;
+      transform: rotate(180deg);
+    }
+    &:nth-of-type(4) {
+      top: $xxl;
+      right: $xxl;
+      transform: rotate(1800deg);
+    }
+  }
+	@media (hover: none) {
+		background: {
+			color: $text_a;
+			blend-mode: color;
+		}
+	}
+	@include hover {
+		&__title, &__desc, &__views, .corner {
+			opacity: 0;
+			transition: opacity $tr, transform $tr;
+		}
+		&__title, &__views {
+			transform: translateY(70px);
+		}
+		&:hover {
+			animation: slides 6s linear infinite ;
+			background: {
+				color: $text_a;
+				blend-mode: color;
+			}
+			.card__title {
+				transform: translateY(0);
+			}
+			.card__desc, .card__views, .card__title, .corner {
+				opacity: 1;
+			}
+		}
+	}
+}
+.request {
+  position: fixed;
+	top: 10%;
+	left: 20%;
+  width: max-content;
+	height: 85%;
+	@extend %df_c;
+	flex-direction: column;
+  padding: $heavy $xxl;
+  transform: translateX(100vw);
+  background-color: $bg;
+  z-index: 5;
+  transition: transform $tr;
+  @include laptop-only {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    button {
+      margin: 0;
+    }
+  }
+  &__bottom {
+		margin-top: auto;
+    display: flex;
+		align-items: baseline;
+    flex-wrap: wrap;
+		justify-content: space-between;
+		.column {
+			flex: 0 0 100%;
+		}
+  }
+}
+.field {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  &__radio {
+    display: flex;
+    margin-left: $md;
+    padding: $semi $normal;
+    border: 1px solid $grey;
+    margin-bottom: $normal;
+  }
+  input:not([type="radio"]){
+    margin-bottom: $half;
+  }
+}
+.contact__field {
+  margin: 0 0 $half $xl;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  column-gap: $semi;
+  @include laptop-only {
+    flex-wrap: wrap;
+  }
+}
+.fieldset {
+	display: flex;
+}
+.next, .prev{
+  background-color: $orange;
+  @include mobile {
+    flex: 0 0 100%;
+  }
+}
+.prev img {
+  transform: translateY(4px) rotateY(180deg);
+}
+.payment {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+	margin-top: 20rem;
+  @include mobile-only {
+    flex-wrap: wrap;
+  }
+}
+.social {
+	@extend %df_c;
+	flex-direction: column;
+	row-gap: $normal;
+  &__item {
+    transition: transform $tr;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+.corner {
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	border: {
+		bottom: 2px solid;
+		left: 2px solid;
+	}
+}
+.link {
+	position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.close {
+  position: absolute;
+  color: $text;
+	background-color: $bg;
+  top: 0;
+  right: 0;
+  font-size: $half;
+  cursor: pointer;
+}
+.hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+}
+.fade {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $text_a;
+  opacity: 0;
+  transition: opacity $tr;
+  pointer-events: none;
+  z-index: 2;
+}
