@@ -115,7 +115,7 @@
 	&__list {
 		display: flex;
 		align-items: baseline;
-		justify-content: space-between;
+		justify-content: space-around;
 		flex-wrap: wrap;
 		column-gap: $xl;
 	}
