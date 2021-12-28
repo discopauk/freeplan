@@ -59,6 +59,7 @@
   }
   button {
     margin-left: auto;
+    line-height: 2;
   }
 	.column {
 		margin-left: auto;
@@ -220,8 +221,12 @@
     flex: 0 0 100%;
   }
 }
-.prev img {
-  transform: translateY(4px) rotateY(180deg);
+.prev::before {
+  content: url(../img/right-arrow.svg);
+  display: inline-block;
+  width: 18px;
+  height: 100%;
+  transform: translateX(-4px) translateY(-4px) rotate(180deg);
 }
 .payment {
   display: flex;

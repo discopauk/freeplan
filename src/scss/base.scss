@@ -57,6 +57,13 @@ button, .btn-like {
     margin-left: $xxl;
     flex: 1 0 100%;
   }
+  &:not(.prev, .close)::after {
+    content: url(../img/right-arrow.svg);
+    display: inline-block;
+    width: 18px;
+    height: 100%;
+    transform: translateX(8px) translateY(4px);
+  }
 }
 .btn-like {
   height: max-content;
