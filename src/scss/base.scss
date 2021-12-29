@@ -60,7 +60,7 @@ button, .btn-like {
     margin-left: $xxl;
     flex: 1 0 100%;
   }
-  &:not(.prev, .close)::after {
+  &:not(.prev, .close, .toggle)::after {
     content: url(../img/right-arrow.svg);
     display: inline-block;
     width: 18px;
