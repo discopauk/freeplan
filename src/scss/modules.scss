@@ -2,19 +2,19 @@
   margin: 1rem auto 0 0;
 }
 .main-menu__list {
-	@extend %df_c;
-	column-gap: $xxl;
-	text-transform: uppercase;
-	font-weight: 800;
-	@include laptop-only {
-		display: none;
-	}
+  @extend %df_c;
+  column-gap: $xxl;
+  text-transform: uppercase;
+  font-weight: 800;
+  @include laptop-only {
+    display: none;
+  }
 }
 .info {
   margin-left: auto;
   font-weight: 800;
   text-align: right;
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .toggle {
   margin-left: $xxl;
@@ -27,7 +27,7 @@
     background-color: $text;
     transform-origin: center;
     transition: transform $tr;
-		margin-bottom: 4px;
+    margin-bottom: 4px;
   }
 }
 .hamb {
@@ -38,14 +38,14 @@
   width: 100vw;
   height: 100vh;
   background-color: $bg;
-  transform: translateY(-150vh);
+  transform: translateY(-300%);
   transition: transform $tr;
   z-index: 1;
   &__list {
     @extend %df_c;
-		flex-direction: column;
-		row-gap: $xl;
-		text-transform: uppercase;
+    flex-direction: column;
+    row-gap: $xl;
+    text-transform: uppercase;
     font: {
       weight: 800;
       size: $semi;
@@ -62,12 +62,12 @@
     margin-left: auto;
     line-height: 2.2rem;
   }
-	.column {
-		margin-left: auto;
-	}
+  .column {
+    margin-left: auto;
+  }
 }
 .column {
-	width: 100%;
+  width: 100%;
   max-width: 40%;
   @include mobile-only {
     max-width: 100%;
@@ -79,17 +79,17 @@
   border-bottom: 4px solid $orange;
 }
 .calc {
-	background-color: $orange;
+  background-color: $orange;
 }
 .card {
   position: relative;
   @extend %df_c;
-	flex-direction: column;
+  flex-direction: column;
   text-align: center;
   padding: 20%;
   color: $bg;
   transition: background-color $tr;
-	@extend %bg_cover;
+  @extend %bg_cover;
   @for $i from 1 through 6 {
     &:nth-child(#{$i}) {
       background-image: url("../img/portfolio#{$i}.webp");
@@ -103,7 +103,7 @@
   }
   .corner {
     border-color: $bg;
-		right: $heavy;
+    right: $heavy;
     &:nth-of-type(5) {
       top: $xxl;
       left: $xxl;
@@ -125,45 +125,52 @@
       transform: rotate(1800deg);
     }
   }
-	@media (hover: none) {
-		background: {
-			color: $text_a;
-			blend-mode: color;
-		}
-	}
-	@include hover {
-		&__title, &__desc, &__views, .corner {
-			opacity: 0;
-			transition: opacity $tr, transform $tr;
-		}
-		&__title, &__views {
-			transform: translateY(70px);
-		}
-		&:hover {
-			animation: slides 6s linear infinite ;
-			background: {
-				color: $text_a;
-				blend-mode: color;
-			}
-			.card__title {
-				transform: translateY(0);
-			}
-			.card__desc, .card__views, .card__title, .corner {
-				opacity: 1;
-			}
-		}
-	}
+  @media (hover: none) {
+    background: {
+      color: $text_a;
+      blend-mode: color;
+    }
+  }
+  @include hover {
+    &__title,
+    &__desc,
+    &__views,
+    .corner {
+      opacity: 0;
+      transition: opacity $tr, transform $tr;
+    }
+    &__title,
+    &__views {
+      transform: translateY(70px);
+    }
+    &:hover {
+      animation: slides 6s linear infinite;
+      background: {
+        color: $text_a;
+        blend-mode: color;
+      }
+      .card__title {
+        transform: translateY(0);
+      }
+      .card__desc,
+      .card__views,
+      .card__title,
+      .corner {
+        opacity: 1;
+      }
+    }
+  }
 }
 .request {
   position: fixed;
-	top: 10%;
-	left: 20%;
+  top: 10%;
+  left: 20%;
   width: max-content;
-	height: 85%;
-	@extend %df_c;
-	flex-direction: column;
+  height: 85%;
+  @extend %df_c;
+  flex-direction: column;
   padding: $heavy $xxl;
-  transform: translateX(100vw);
+  transform: translateX(200vw);
   background-color: $bg;
   z-index: 5;
   transition: transform $tr;
@@ -174,17 +181,21 @@
     left: 0;
     button {
       margin: 0;
+      margin-top: 5px;
     }
   }
   &__bottom {
-		margin-top: auto;
+    margin-top: auto;
     display: flex;
-		align-items: baseline;
+    align-items: baseline;
     flex-wrap: wrap;
-		justify-content: space-between;
-		.column {
-			flex: 0 0 100%;
-		}
+    justify-content: space-between;
+    .column {
+      flex: 0 0 100%;
+    }
+  }
+  .close {
+    color: #000;
   }
 }
 .field {
@@ -198,7 +209,7 @@
     border: 1px solid $grey;
     margin-bottom: $normal;
   }
-  input:not([type="radio"]){
+  input:not([type="radio"]) {
     margin-bottom: $half;
   }
 }
@@ -214,9 +225,10 @@
   }
 }
 .fieldset {
-	display: flex;
+  display: flex;
 }
-.next, .prev{
+.next,
+.prev {
   background-color: $orange;
   @include mobile {
     flex: 0 0 100%;
@@ -234,15 +246,15 @@
   width: 100%;
   justify-content: space-around;
   align-items: center;
-	margin-top: 20rem;
+  margin-top: 20rem;
   @include mobile-only {
     flex-wrap: wrap;
   }
 }
 .social {
-	@extend %df_c;
-	flex-direction: column;
-	row-gap: $normal;
+  @extend %df_c;
+  flex-direction: column;
+  row-gap: $normal;
   &__item {
     transition: transform $tr;
     &:hover {
@@ -251,16 +263,16 @@
   }
 }
 .corner {
-	position: absolute;
-	width: 15px;
-	height: 15px;
-	border: {
-		bottom: 2px solid;
-		left: 2px solid;
-	}
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: {
+    bottom: 2px solid;
+    left: 2px solid;
+  }
 }
 .link {
-	position: absolute;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -272,7 +284,7 @@
 .close {
   position: absolute;
   color: $text;
-	background-color: $bg;
+  background-color: $bg;
   top: 0;
   right: 0;
   font-size: $half;

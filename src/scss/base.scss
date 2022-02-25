@@ -1,10 +1,13 @@
-*, ::before, ::after {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
 }
-html, body {
+html,
+body {
   height: 100%;
 }
 html {
@@ -27,7 +30,9 @@ body {
     display: block;
   }
 }
-a, button, input {
+a,
+button,
+input {
   font: inherit;
 }
 a {
@@ -37,14 +42,17 @@ a {
     color: $orange;
   }
 }
-ul, li {
+ul,
+li {
   list-style: none;
 }
-img, svg {
+img,
+svg {
   display: inline-block;
   max-width: 100%;
 }
-button, .btn-like {
+button:not(.toggle),
+.btn-like {
   display: block;
   padding: $sm $xl;
   width: max-content;
@@ -71,24 +79,40 @@ button, .btn-like {
 .btn-like {
   height: max-content;
 }
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
-h1, h2, .title, .desc {
+h1,
+h2,
+.title,
+.desc {
   padding-left: $xxl;
 }
 p {
   margin-bottom: $xxl;
 }
-h1, h2, h3, .title {
+h1,
+h2,
+h3,
+.title {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2.5px;
 }
-h1, h2, .title {
+h1,
+h2,
+.title {
   font-size: $lg;
 }
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin-bottom: $lg;
 }
 h3 {
